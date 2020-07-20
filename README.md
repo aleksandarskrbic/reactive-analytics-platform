@@ -9,6 +9,10 @@ Platform consists of multiple microservices:
 3. [Location Service](https://github.com/aleksandarskrbic/reactive-anaytics-platform/tree/master/location-service) is service that contains details about locations. More details [here](https://github.com/aleksandarskrbic/reactive-anaytics-platform/tree/master/location-service).
 4. [Query Service](https://github.com/aleksandarskrbic/reactive-anaytics-platform/tree/master/query-service) is used to query aggregated data and location details. More details [here](https://github.com/aleksandarskrbic/reactive-anaytics-platform/tree/master/query-service).
 
+## System Architecture
+
+![alt text](https://github.com/aleksandarskrbic/reactive-anaytics-platform/blob/master/system-architecture.png)
+
 ## How to run:
 1. Git pull and cd into ```./ops``` directory
 2. Run this command: ``` docker network create kafka-network```
