@@ -35,7 +35,6 @@ public class PostgresLocationRepository implements LocationRepository {
 
     @PostConstruct
     private void init() {
-        System.out.println("kurcina ");
         IntStream.range(0, 100)
             .mapToObj(i -> new CreateLocation("Name-" + i, "Random description - " + i))
             .forEach(a -> save(a).await().indefinitely());
