@@ -71,16 +71,10 @@ public class PostgresLocationRepository implements LocationRepository {
             .onItem().apply(rows -> rows.rowCount() == 1);
     }
 
-    @PostConstruct
+/*    @PostConstruct
     private void init() {
-        pgClient.query(
-            "CREATE TABLE IF NOT EXISTS locations (\n" +
-                "  id BIGSERIAL PRIMARY KEY,\n" +
-                "  name VARCHAR NOT NULL,\n" +
-                "  description VARCHAR NOT NULL\n);"
-        ).execute().await().indefinitely();
         IntStream.range(0, 100)
             .mapToObj(i -> new CreateLocation("Name-" + i, "Random description - " + i))
-            .forEach(a -> save(a).await().indefinitely());
-    }
+            .forEach(this::save);
+    }*/
 }

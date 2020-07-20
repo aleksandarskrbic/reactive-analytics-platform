@@ -16,7 +16,7 @@ public class CheckInEventProducer {
 
     @Outgoing("check-in-generated")
     public Flowable<OutgoingKafkaRecord<Long, CheckInEvent>> produce() {
-        return Flowable.interval(50, TimeUnit.MILLISECONDS)
+        return Flowable.interval(75, TimeUnit.MILLISECONDS)
             .map(tick -> generator.randomEvent())
             .map(event -> KafkaRecord.of(event.getLocationId(), event));
     }

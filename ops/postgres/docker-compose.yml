@@ -1,0 +1,19 @@
+version: '3.5'
+
+services:
+  pg-location:
+    image: postgres:12.0-alpine
+    ports:
+      - "5432:5432"
+    environment:
+      - DEBUG=false
+      - POSTGRES_DB=location-db
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_USER=admin
+    volumes:
+      - ./../../location-service/src/main/resources/tables.sql:/docker-entrypoint-initdb.d/init.sql
+
+networks:
+  default:
+    external:
+      name: kafka-network
