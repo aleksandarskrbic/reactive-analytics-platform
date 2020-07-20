@@ -1,6 +1,6 @@
 # Event Generator
 
-Event Generator is service that is used to generate random user data that represent user check-in on some location.
+```Event Generator``` is service that is used to generate random user data that represent user check-in on some location.
 Events are published on ```check-in``` Kafka topic.
 
 For Kafka integration [SmallRye Reactive Messaging](https://smallrye.io/smallrye-reactive-messaging/smallrye-reactive-messaging/2.1/index.html) with Kafka Connector is used.
