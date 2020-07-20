@@ -5,6 +5,8 @@ Events are published on ```check-in``` Kafka topic.
 
 For Kafka integration [SmallRye Reactive Messaging](https://smallrye.io/smallrye-reactive-messaging/smallrye-reactive-messaging/2.1/index.html) with Kafka Connector is used.
 
+JSON serialization is used for Kafka records.
+
 ## CheckIn Event
 
 ```java
