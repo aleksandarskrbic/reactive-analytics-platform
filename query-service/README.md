@@ -1,30 +1,29 @@
-# location-service project
+# Query Service
 
-This project uses Quarkus, the Supersonic Subatomic Java Framework.
+```Query Service``` is only service that is client facing, and it is used to query aggregated data and location details.
+This service demosntrates how to:
+  1. Use [MicroProfile Rest Client](https://github.com/eclipse/microprofile-rest-client) and query external HTTP services
+  2. Use [SmallRye Fault Tolerance](https://smallrye.io/blog/fault-tolerance-4-1/)
+  3. Cache data in you microservices using quarkus-cache in comination with [Caffeine](https://github.com/ben-manes/caffeine)
+  4. How to combine multiple asynchronous HTTP calls
+  5. Exception handling in quarkus
+  
+## HTTP API exposed by Query Service
 
-If you want to learn more about Quarkus, please visit its website: https://quarkus.io/ .
-
-## Running the application in dev mode
-
-You can run your application in dev mode that enables live coding using:
-```
-./mvnw quarkus:dev
-```
-
-## Packaging and running the application
-
-The application can be packaged using `./mvnw package`.
-It produces the `location-service-1.0.0-SNAPSHOT-runner.jar` file in the `/target` directory.
-Be aware that it’s not an _über-jar_ as the dependencies are copied into the `target/lib` directory.
-
-The application is now runnable using `java -jar target/location-service-1.0.0-SNAPSHOT-runner.jar`.
-
-## Creating a native executable
-
-You can create a native executable using: `./mvnw package -Pnative`.
-
-Or, if you don't have GraalVM installed, you can run the native executable build in a container using: `./mvnw package -Pnative -Dquarkus.native.container-build=true`.
-
-You can then execute your native executable with: `./target/location-service-1.0.0-SNAPSHOT-runner`
-
-If you want to learn more about building native executables, please consult https://quarkus.io/guides/building-native-image.
+<table>
+  <tr>
+    <td><b>Path</b></td>
+    <td><b>Method</b></td>
+    <td><b>Summary</b></td>
+  </tr>
+  <tr>
+    <td>/api/query/{id}/full</td>
+    <td>GET</td>
+    <td>Get full report with location details for location with a given {id}</td>
+  </tr>
+  <tr>
+    <td>/api/query/{id}/{device}</td>
+    <td>GET</td>
+    <td>Get report for specific {device} with location details for location with a given {id}</td>
+  </tr>
+</table>
