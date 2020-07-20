@@ -1,30 +1,41 @@
-# ingestion-service project
+# Ingestion Service
 
-This project uses Quarkus, the Supersonic Subatomic Java Framework.
+Ingestion Service is used to ingest data from ```check-in``` Kafka topic and specific aggregation of ingested data.
+Ingestion and aggregation is implemented using [Kafka Streams](https://kafka.apache.org/documentation/streams/) and aggregates are stored in RocksDB.
 
-If you want to learn more about Quarkus, please visit its website: https://quarkus.io/ .
+## Aggregate Model
 
-## Running the application in dev mode
+```java
+public class Aggregate {
 
-You can run your application in dev mode that enables live coding using:
+    public static final String PHONE = "PHONE";
+    public static final String LAPTOP = "LAPTOP";
+
+    private Long locationId;
+    private long count;
+    private long phoneCount;
+    private long laptopCount;
+ }
 ```
-./mvnw quarkus:dev
-```
 
-## Packaging and running the application
+Aggregate contains count of check ins by device type and total count. Data can be queried using [Kafka Streams Interactive Queries](https://docs.confluent.io/current/streams/developer-guide/interactive-queries.html)
 
-The application can be packaged using `./mvnw package`.
-It produces the `ingestion-service-1.0.0-SNAPSHOT-runner.jar` file in the `/target` directory.
-Be aware that it’s not an _über-jar_ as the dependencies are copied into the `target/lib` directory.
+## HTTP API exposed by Ingestion Service
 
-The application is now runnable using `java -jar target/ingestion-service-1.0.0-SNAPSHOT-runner.jar`.
-
-## Creating a native executable
-
-You can create a native executable using: `./mvnw package -Pnative`.
-
-Or, if you don't have GraalVM installed, you can run the native executable build in a container using: `./mvnw package -Pnative -Dquarkus.native.container-build=true`.
-
-You can then execute your native executable with: `./target/ingestion-service-1.0.0-SNAPSHOT-runner`
-
-If you want to learn more about building native executables, please consult https://quarkus.io/guides/building-native-image.
+<table>
+  <tr>
+    <td><b>Path</b></td>
+    <td><b>Method</b></td>
+    <td><b>Summary</b></td>
+  </tr>
+  <tr>
+    <td>/api/check-in/{id}/all</td>
+    <td>GET</td>
+    <td>Get full check-in data for location with a given {id}</td>
+  </tr>
+  <tr>
+    <td>/api/check-in/{id}/{device}</td>
+    <td>GET</td>
+    <td>Get check-in count for specific {device} for location with a given {id}</td>
+  </tr>
+</table>
