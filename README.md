@@ -6,7 +6,7 @@ following reactive principles.
 Platform consists of multiple microservices:
 1. [Event Generator](https://github.com/aleksandarskrbic/reactive-anaytics-platform/tree/master/event-generator) is used to produce random events that represents user data. More details [here](https://github.com/aleksandarskrbic/reactive-anaytics-platform/tree/master/event-generator).
 2. [Ingestion Service](https://github.com/aleksandarskrbic/reactive-anaytics-platform/tree/master/ingestion-service) is responsible for ingestion and aggregation of user data. More details [here](https://github.com/aleksandarskrbic/reactive-anaytics-platform/tree/master/ingestion-service).
-3. [Location Service](https://github.com/aleksandarskrbic/reactive-anaytics-platform/tree/master/location-service) is service that consists details about locations. More details [here](https://github.com/aleksandarskrbic/reactive-anaytics-platform/tree/master/location-service).
+3. [Location Service](https://github.com/aleksandarskrbic/reactive-anaytics-platform/tree/master/location-service) is service that contains details about locations. More details [here](https://github.com/aleksandarskrbic/reactive-anaytics-platform/tree/master/location-service).
 4. [Query Service](https://github.com/aleksandarskrbic/reactive-anaytics-platform/tree/master/query-service) is used to query aggregated data and location details data. More details [here](https://github.com/aleksandarskrbic/reactive-anaytics-platform/tree/master/query-service).
 
 ## How to run:
