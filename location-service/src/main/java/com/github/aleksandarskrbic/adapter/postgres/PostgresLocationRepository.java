@@ -1,11 +1,8 @@
 package com.github.aleksandarskrbic.adapter.postgres;
 
 import java.util.Optional;
-import java.util.stream.IntStream;
-import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
-import io.quarkus.runtime.Startup;
 import io.smallrye.mutiny.Multi;
 import io.smallrye.mutiny.Uni;
 import io.vertx.mutiny.pgclient.PgPool;
@@ -15,7 +12,6 @@ import com.github.aleksandarskrbic.adapter.http.dto.CreateLocation;
 import com.github.aleksandarskrbic.domain.model.Location;
 import com.github.aleksandarskrbic.domain.repository.LocationRepository;
 
-@Startup
 @ApplicationScoped
 public class PostgresLocationRepository implements LocationRepository {
 
@@ -70,11 +66,4 @@ public class PostgresLocationRepository implements LocationRepository {
             .execute(Tuple.of(id))
             .onItem().apply(rows -> rows.rowCount() == 1);
     }
-
-/*    @PostConstruct
-    private void init() {
-        IntStream.range(0, 100)
-            .mapToObj(i -> new CreateLocation("Name-" + i, "Random description - " + i))
-            .forEach(this::save);
-    }*/
 }
