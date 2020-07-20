@@ -1,4 +1,4 @@
-version: '3.1'
+version: '3.5'
 
 services:
   pg-location:
@@ -11,7 +11,7 @@ services:
       - POSTGRES_PASSWORD=admin
       - POSTGRES_USER=admin
     volumes:
-      - ./location-service/src/main/resources/tables.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./../../location-service/src/main/resources/tables.sql:/docker-entrypoint-initdb.d/init.sql
   zookeeper:
     image: strimzi/kafka:0.11.3-kafka-2.1.0
     command: [
@@ -37,3 +37,8 @@ services:
       KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
       KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+
+networks:
+  default:
+    external:
+      name: kafka-network

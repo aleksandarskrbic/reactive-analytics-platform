@@ -4,10 +4,8 @@ import java.util.Optional;
 import java.util.stream.IntStream;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
-import javax.enterprise.event.Observes;
 import javax.inject.Inject;
 import io.quarkus.runtime.Startup;
-import io.quarkus.runtime.StartupEvent;
 import io.smallrye.mutiny.Multi;
 import io.smallrye.mutiny.Uni;
 import io.vertx.mutiny.pgclient.PgPool;
@@ -32,13 +30,6 @@ public class PostgresLocationRepository implements LocationRepository {
 
     @Inject
     private LocationMapper mapper;
-
-    @PostConstruct
-    private void init() {
-        IntStream.range(0, 100)
-            .mapToObj(i -> new CreateLocation("Name-" + i, "Random description - " + i))
-            .forEach(a -> save(a).await().indefinitely());
-    }
 
     @Override
     public Uni<Optional<Long>> save(final CreateLocation location) {
@@ -78,5 +69,18 @@ public class PostgresLocationRepository implements LocationRepository {
         return pgClient.preparedQuery(DELETE_QUERY)
             .execute(Tuple.of(id))
             .onItem().apply(rows -> rows.rowCount() == 1);
+    }
+
+    @PostConstruct
+    private void init() {
+        pgClient.query(
+            "CREATE TABLE IF NOT EXISTS locations (\n" +
+                "  id BIGSERIAL PRIMARY KEY,\n" +
+                "  name VARCHAR NOT NULL,\n" +
+                "  description VARCHAR NOT NULL\n);"
+        ).execute().await().indefinitely();
+        IntStream.range(0, 100)
+            .mapToObj(i -> new CreateLocation("Name-" + i, "Random description - " + i))
+            .forEach(a -> save(a).await().indefinitely());
     }
 }

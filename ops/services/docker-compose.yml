@@ -1,28 +1,25 @@
-version: '3.1'
+version: '3.5'
 
 services:
   event-generator:
     image: quarkus/event-generator
     ports:
       - '9000:9000'
-    environment:
-     KAFKA_BOOTSTRAP_SERVERS: 'localhost:9092'
   ingestion-service:
     image: quarkus/ingestion-service
     ports:
       - '9001:9001'
-    environment:
-     QUARKUS_KAFKA_STREAMS_BOOTSTRAP_SERVERS: 'localhost:9092'
   location-service:
-    image: quarkus/query-service
+    image: quarkus/location-service
     ports:
       - '9002:9002'
-    environment:
-     QUARKUS_KAFKA_STREAMS_BOOTSTRAP_SERVERS: 'localhost:9092'
   query-service:
     image: quarkus/query-service
     ports:
       - '9003:9003'
-    environment:
-     QUARKUS_KAFKA_STREAMS_BOOTSTRAP_SERVERS: 'localhost:9092'
+
+networks:
+  default:
+    external:
+      name: kafka-network
 

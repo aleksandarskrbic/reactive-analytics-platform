@@ -5,4 +5,4 @@ cd ../ingestion-service/ && ./mvnw clean package -f pom.xml && docker build -f s
 cd ../location-service/ && ./mvnw clean package -f pom.xml && docker build -f src/main/docker/Dockerfile -t quarkus/location-service .
 cd ../query-service/ && ./mvnw clean package -f pom.xml && docker build -f src/main/docker/Dockerfile -t quarkus/query-service .
 
-
+cd ../ops/services/ && docker-compose up
