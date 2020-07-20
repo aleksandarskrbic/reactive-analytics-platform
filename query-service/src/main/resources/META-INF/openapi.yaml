@@ -1,0 +1,237 @@
+---
+openapi: 3.0.1
+info:
+  title: Query API
+  version: "1.0"
+paths:
+  /api/query/{id}/full:
+    get:
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            format: int64
+            type: integer
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
+  /api/query/{id}/{device}:
+    get:
+      parameters:
+        - name: device
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: id
+          in: path
+          required: true
+          schema:
+            format: int64
+            type: integer
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
+components:
+  schemas:
+    SetString:
+      uniqueItems: true
+      type: array
+      items:
+        type: string
+    NewCookie:
+      type: object
+      properties:
+        domain:
+          type: string
+        name:
+          type: string
+        path:
+          type: string
+        value:
+          type: string
+        version:
+          format: int32
+          type: integer
+        comment:
+          type: string
+        expiry:
+          $ref: '#/components/schemas/Date'
+        httpOnly:
+          type: boolean
+        maxAge:
+          format: int32
+          type: integer
+        secure:
+          type: boolean
+    MapStringNewCookie:
+      type: object
+      additionalProperties:
+        $ref: '#/components/schemas/NewCookie'
+    Date:
+      format: date
+      type: string
+    EntityTag:
+      type: object
+      properties:
+        value:
+          type: string
+        weak:
+          type: boolean
+    MultivaluedMapStringObject:
+      type: object
+      additionalProperties: {}
+    Locale:
+      type: object
+      properties:
+        country:
+          type: string
+        displayCountry:
+          type: string
+        displayLanguage:
+          type: string
+        displayName:
+          type: string
+        displayScript:
+          type: string
+        displayVariant:
+          type: string
+        extensionKeys:
+          $ref: '#/components/schemas/SetCharacter'
+        iSO3Country:
+          type: string
+        iSO3Language:
+          type: string
+        language:
+          type: string
+        script:
+          type: string
+        unicodeLocaleAttributes:
+          $ref: '#/components/schemas/SetString'
+        unicodeLocaleKeys:
+          $ref: '#/components/schemas/SetString'
+        variant:
+          type: string
+    Link:
+      type: object
+      properties:
+        params:
+          $ref: '#/components/schemas/MapStringString'
+        rel:
+          type: string
+        rels:
+          $ref: '#/components/schemas/ListString'
+        title:
+          type: string
+        type:
+          type: string
+        uri:
+          $ref: '#/components/schemas/URI'
+        uriBuilder:
+          $ref: '#/components/schemas/UriBuilder'
+    SetLink:
+      uniqueItems: true
+      type: array
+      items:
+        $ref: '#/components/schemas/Link'
+    URI:
+      format: uri
+      type: string
+    MediaType:
+      type: object
+      properties:
+        parameters:
+          $ref: '#/components/schemas/MapStringString'
+        subtype:
+          type: string
+        type:
+          type: string
+        wildcardSubtype:
+          type: boolean
+        wildcardType:
+          type: boolean
+    StatusType:
+      type: object
+      properties:
+        family:
+          $ref: '#/components/schemas/Family'
+        reasonPhrase:
+          type: string
+        statusCode:
+          format: int32
+          type: integer
+    MultivaluedMapStringString:
+      type: object
+      additionalProperties:
+        type: string
+    Family:
+      enum:
+        - CLIENT_ERROR
+        - INFORMATIONAL
+        - OTHER
+        - REDIRECTION
+        - SERVER_ERROR
+        - SUCCESSFUL
+      type: string
+    MapStringString:
+      type: object
+      additionalProperties:
+        type: string
+    ListString:
+      type: array
+      items:
+        type: string
+    UriBuilder:
+      type: object
+    SetCharacter:
+      uniqueItems: true
+      type: array
+      items:
+        format: byte
+        type: string
+    Response:
+      type: object
+      properties:
+        allowedMethods:
+          $ref: '#/components/schemas/SetString'
+        cookies:
+          $ref: '#/components/schemas/MapStringNewCookie'
+        date:
+          $ref: '#/components/schemas/Date'
+        entity:
+          type: object
+        entityTag:
+          $ref: '#/components/schemas/EntityTag'
+        headers:
+          $ref: '#/components/schemas/MultivaluedMapStringObject'
+        language:
+          $ref: '#/components/schemas/Locale'
+        lastModified:
+          $ref: '#/components/schemas/Date'
+        length:
+          format: int32
+          type: integer
+        links:
+          $ref: '#/components/schemas/SetLink'
+        location:
+          $ref: '#/components/schemas/URI'
+        mediaType:
+          $ref: '#/components/schemas/MediaType'
+        metadata:
+          $ref: '#/components/schemas/MultivaluedMapStringObject'
+        status:
+          format: int32
+          type: integer
+        statusInfo:
+          $ref: '#/components/schemas/StatusType'
+        stringHeaders:
+          $ref: '#/components/schemas/MultivaluedMapStringString'

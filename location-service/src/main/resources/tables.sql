@@ -1,0 +1,5 @@
+CREATE TABLE locations (
+  id BIGSERIAL PRIMARY KEY,
+  name VARCHAR NOT NULL,
+  description VARCHAR NOT NULL
+);
