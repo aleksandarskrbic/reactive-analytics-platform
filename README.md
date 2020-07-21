@@ -8,6 +8,7 @@ Platform consists of multiple microservices:
 2. [Ingestion Service](https://github.com/aleksandarskrbic/reactive-anaytics-platform/tree/master/ingestion-service) is responsible for ingestion and aggregation of user data. More details [here](https://github.com/aleksandarskrbic/reactive-anaytics-platform/tree/master/ingestion-service).
 3. [Location Service](https://github.com/aleksandarskrbic/reactive-anaytics-platform/tree/master/location-service) is service that contains details about locations. More details [here](https://github.com/aleksandarskrbic/reactive-anaytics-platform/tree/master/location-service).
 4. [Query Service](https://github.com/aleksandarskrbic/reactive-anaytics-platform/tree/master/query-service) is used to query aggregated data and location details. More details [here](https://github.com/aleksandarskrbic/reactive-anaytics-platform/tree/master/query-service).
+5. [Dashboad UI](https://github.com/aleksandarskrbic/reactive-anaytics-platform/tree/master/web-ui) can be used to retrieve data from Query Service.
 
 ## System Architecture
 
