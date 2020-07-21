@@ -3,6 +3,9 @@
 ```Ingestion Service``` is used to ingest data from ```check-in``` Kafka topic and specific aggregation of ingested data.
 Ingestion and aggregation is implemented using [Kafka Streams](https://kafka.apache.org/documentation/streams/) and aggregates are stored in RocksDB.
 
+Service is running on: ```localhost:9001```
+SwaggerUI available at: ```localhost:9001/swagger-ui```
+
 ## Aggregate Model
 
 ```java
