@@ -4,8 +4,8 @@ Example of analytics platform that tracks user check-ins on specific locations a
 following reactive principles.
 
 The system represents a microservices architecture and some common patterns related to microservices are showed like:
-1. When and how to use Kafka, Kafka Streams and Kafka State Stores
-2. How to communicate with other microservices via HTTP in a resilient way
+1. When and how to use Kafka, Kafka Streams and Kafka State Stores.
+2. How to communicate with other microservices via HTTP in a resilient way.
 3. How to compose multiple asynchronous computations and in general how to implement service in a reactive manner from end to end.
 
 Platform consists of multiple microservices:
