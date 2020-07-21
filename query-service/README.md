@@ -8,6 +8,10 @@ This service demosntrates how to:
   4. How to combine multiple asynchronous HTTP calls
   5. Exception handling in quarkus
   
+Service is running on: ```localhost:9003```
+
+SwaggerUI available at: ```localhost:9003/swagger-ui```
+  
 ## HTTP API exposed by Query Service
 
 <table>
