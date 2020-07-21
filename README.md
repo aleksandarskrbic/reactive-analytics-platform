@@ -19,4 +19,5 @@ Platform consists of multiple microservices:
 2. Run this command: ``` docker network create kafka-network```
 3. Run: ```./run-pg.sh```
 4. After that run: ```./run-kafka.sh```
-5. Finally run all services with this command: ```./run-services.sh```
+5. Run Event Generator: ```./run-generator.sh```
+6. Finally run all services with this command: ```./run-services.sh```
