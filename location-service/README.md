@@ -6,6 +6,10 @@
 
 Whole service is implemented in a reactive manner(from database access to endpoints), using [SmallRye Mutiny](https://smallrye.io/smallrye-mutiny/).
 
+Service is running on: ```localhost:9002```
+
+SwaggerUI available at: ```localhost:9002/swagger-ui```
+
 ## Location Model
 
 ```java
