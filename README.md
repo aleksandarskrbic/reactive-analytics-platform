@@ -21,3 +21,4 @@ Platform consists of multiple microservices:
 4. After that run: ```./run-kafka.sh```
 5. Run Event Generator: ```./run-generator.sh```
 6. Finally run all services with this command: ```./run-services.sh```
+7. Web UI is available at http://localhost:3000 or you can use query-service directly via HTTP
