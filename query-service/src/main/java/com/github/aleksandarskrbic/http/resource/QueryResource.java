@@ -37,7 +37,6 @@ public class QueryResource {
 
     @GET
     @Path("{id}/full")
-    @Produces(MediaType.APPLICATION_JSON)
     @Retry(maxRetries = 4)
     @Fallback(fallbackMethod = "fullReportFallback")
     @CircuitBreaker(requestVolumeThreshold = 4)
@@ -51,7 +50,6 @@ public class QueryResource {
 
     @GET
     @Path("{id}/{device}")
-    @Produces(MediaType.APPLICATION_JSON)
     @Retry(maxRetries = 4)
     @Fallback(fallbackMethod = "deviceReportFallback")
     @CircuitBreaker(requestVolumeThreshold = 4)

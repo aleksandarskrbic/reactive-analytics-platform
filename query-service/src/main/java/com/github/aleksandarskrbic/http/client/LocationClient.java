@@ -11,12 +11,12 @@ import io.quarkus.cache.CacheResult;
 import io.smallrye.mutiny.Uni;
 
 @Path("/api/locations/")
+@Produces(MediaType.APPLICATION_JSON)
 @RegisterRestClient(configKey = "location-api")
 public interface LocationClient {
 
     @GET
     @Path("{id}")
-    @Produces(MediaType.APPLICATION_JSON)
     @CacheResult(cacheName = "location-cache")
     Uni<Location> findById(@PathParam final Long id);
 }
