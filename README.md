@@ -8,10 +8,10 @@ The system represents a microservices architecture and some common patterns rela
 2. How to communicate with other microservices via HTTP in a resilient way.
 3. How to compose multiple asynchronous computations and in general how to implement service in a reactive manner from end to end.
 
-Platform consists of multiple microservices:
-1. [Event Generator](https://github.com/aleksandarskrbic/reactive-anaytics-platform/tree/master/event-generator) is used to produce random events that represents user data. More details [here](https://github.com/aleksandarskrbic/reactive-anaytics-platform/tree/master/event-generator).
+The platform consists of multiple microservices:
+1. [Event Generator](https://github.com/aleksandarskrbic/reactive-anaytics-platform/tree/master/event-generator) is used to produce random events that represent user data. More details [here](https://github.com/aleksandarskrbic/reactive-anaytics-platform/tree/master/event-generator).
 2. [Ingestion Service](https://github.com/aleksandarskrbic/reactive-anaytics-platform/tree/master/ingestion-service) is responsible for ingestion and aggregation of user data. More details [here](https://github.com/aleksandarskrbic/reactive-anaytics-platform/tree/master/ingestion-service).
-3. [Location Service](https://github.com/aleksandarskrbic/reactive-anaytics-platform/tree/master/location-service) is service that contains details about locations. More details [here](https://github.com/aleksandarskrbic/reactive-anaytics-platform/tree/master/location-service).
+3. [Location Service](https://github.com/aleksandarskrbic/reactive-anaytics-platform/tree/master/location-service) is a service that contains details about locations. More details [here](https://github.com/aleksandarskrbic/reactive-anaytics-platform/tree/master/location-service).
 4. [Query Service](https://github.com/aleksandarskrbic/reactive-anaytics-platform/tree/master/query-service) is used to query aggregated data and location details. More details [here](https://github.com/aleksandarskrbic/reactive-anaytics-platform/tree/master/query-service).
 5. [Dashboad UI](https://github.com/aleksandarskrbic/reactive-anaytics-platform/tree/master/web-ui) can be used to retrieve data from Query Service. More details [here](https://github.com/aleksandarskrbic/reactive-anaytics-platform/tree/master/web-ui)
 
