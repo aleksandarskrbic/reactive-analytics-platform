@@ -23,8 +23,9 @@ Platform consists of multiple microservices:
 ## How to run:
 1. Git pull and cd into ```./ops``` directory
 2. Run this command: ``` docker network create kafka-network```
-3. Run: ```./run-pg.sh```
-4. After that run: ```./run-kafka.sh```
-5. Run Event Generator: ```./run-generator.sh```
-6. Finally run all services with this command: ```./run-services.sh```
-7. Web UI is available at http://localhost:3000 or you can use query-service directly via HTTP
+3. Run UI: ```./run-ui.sh```
+4. Run PostgreSQL: ```./run-pg.sh```
+5. Run Kafka and Zookeper: ```./run-kafka.sh``` make sure that kafka is started properly, if not just kill process(ctr+c) and run script again
+6. Run Event Generator: ```./run-generator.sh```
+7. Finally run all services with this command: ```./run-services.sh```
+8. Web UI is available at http://localhost:3000 or you can use query-service directly via HTTP
