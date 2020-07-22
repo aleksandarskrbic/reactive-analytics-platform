@@ -1,4 +1,4 @@
-# Reactive Anaytics Platform - Quarkus Hackaton
+# Reactive Analytics Platform - Quarkus Hackaton
 
 Example of analytics platform that tracks user check-ins on specific locations and provides real-time dashboards backed by Quarkus, Postgres, Kafka-Streams, and RocksDB
 following reactive principles.
