@@ -72,11 +72,3 @@ function App() {
 }
 
 export default App;
-
-/*     <div style={{display: 'flex',  justifyContent:'center'}}>
-      <TodoList todos={todos} checkTodo={checkTodo} />
-      <input ref={todoNameRef} type="text" />
-      <button onClick={addTodo}>Add Todo</button>
-      <button>Clear Todo</button>
-      <div>{todos.filter(todo => !todo.complete).length} left to do</div>
-    </div>  */
